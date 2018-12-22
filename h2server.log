@@ -1,0 +1,1 @@
+[h2server] 2018-12-22 15:13:02,318 [main] ERROR com.feidao.dingzk.h2server.util.PortStatusCheck : 本机已经使用了端口: 22, 不能重复使用!

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>[h2server] %date [%thread] %-5level %logger{80} : %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="APPLOGFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>h2server.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <fileNamePattern>h2server.%i.log</fileNamePattern>
+            <minIndex>1</minIndex>
+            <maxIndex>20</maxIndex>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>5MB</maxFileSize>
+        </triggeringPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>[h2server] %date [%thread] %-5level %logger{80} : %msg%n</pattern>
+            <charset>UTF-8</charset>
+            <!--<charset class="java.nio.charset.Charset">UTF-8</charset>-->
+        </encoder>
+    </appender>
+
+    <!--h2server -->
+    <!--<logger name="com.feidao.dingzk" level="INFO">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="APPLOGFILE" />
+    </logger>-->
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="APPLOGFILE"/>
+    </root>
+</configuration>
